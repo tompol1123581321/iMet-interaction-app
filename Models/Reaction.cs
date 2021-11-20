@@ -20,8 +20,8 @@ namespace Models
 	user_id int not null,
 	interaction_id int not null,
 	type int not null,
-	created timestamp not null,
-	deleted timestamp,
+	created datetime not null,
+	deleted datetime,
 	
 	primary key(reaction_id)
 );*/

@@ -5,28 +5,29 @@ import { InteractionCard } from "./Card/Card";
 import { Container } from "./Container/Container";
 
 const testInterActions: Interaction[] = [
-  {
-    date: "1.1.2021",
-    targetId: 1,
-    targetName: "Tomas Polivka",
-    interactionId: 1,
-    type: "online",
-    userId: 1,
-    userName: "Martin Pražák",
-  },
+    {
+        date: "1.1.2021",
+        targetId: 1,
+        targetName: "Tomas Polivka",
+        interactionId: 1,
+        type: "online",
+        userId: 1,
+        userName: "Martin Pražák",
+    },
 ];
 
 export const MainPage = () => {
+    const data = fetch('feed');
   return (
-    <Container>
-      <div>
-        <Typography textAlign="center" mb="5rem" variant="h3">
-          MainPage
-        </Typography>
-        {testInterActions.map((i) => (
-          <InteractionCard {...i} />
-        ))}
-      </div>
-    </Container>
-  );
+        <Container>
+            <div>
+                <Typography textAlign="center" mb="5rem" variant="h3">
+                    MainPage
+                </Typography>
+                {testInterActions.map((i) => (
+                    <InteractionCard {...i} />
+                ))}
+            </div>
+        </Container>
+    );
 };

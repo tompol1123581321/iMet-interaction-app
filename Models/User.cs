@@ -21,8 +21,8 @@ namespace Models
 	email varchar(128) not null,
 	first_name varchar(64),
 	last_name varchar(64),
-	created timestamp not null,
-	deleted timestamp,
+	created datetime not null,
+	deleted datetime,
 	
 	primary key(user_id)
 );
