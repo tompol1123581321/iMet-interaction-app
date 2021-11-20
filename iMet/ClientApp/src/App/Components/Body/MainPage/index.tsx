@@ -34,7 +34,7 @@ export const MainPage = () => {
                 {loading && <div>Loading data</div>}
                 {!loading && (
                     interactions.map((i) => (
-                        <InteractionCard {...i} />
+                        <InteractionCard key={`ic-` + i.id} {...i} />
                     )))}
             </div>
         </Container>
