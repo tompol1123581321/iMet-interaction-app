@@ -24,7 +24,7 @@ export const MainPage = () => {
           MainPage
         </Typography>
         {testInterActions.map((i) => (
-          <InteractionCard {...i} />
+          <InteractionCard key={i.interactionId} {...i} />
         ))}
       </div>
     </Container>
