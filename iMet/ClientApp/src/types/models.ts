@@ -1,4 +1,5 @@
 import React from "react";
+import { User } from "./user";
 
 type Reaction = {
   type: 1 | 0;
@@ -7,12 +8,9 @@ type Reaction = {
 };
 
 export type Interaction = {
-  interactionId: number;
-  userId: number;
-  userName: string;
-  type: "online" | "offline";
-  date: any;
-  targetId: number;
-  targetName: string;
-  reactions?: Reaction[];
+  id: number;
+  type: number;
+  created: string;
+  user: User;
+  target: User;
 };

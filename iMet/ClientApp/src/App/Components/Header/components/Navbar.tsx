@@ -10,7 +10,7 @@ export const Navbar = () => {
         <Link to="/">MainPage</Link>
       </Button>
       <Button className="mx-2" variant="contained" color="secondary">
-        <Link to="/page2">Page 2</Link>
+        <Link to="/addInteraction">Add Interaction</Link>
       </Button>
       <Button className="mx-2" variant="contained" color="secondary">
         <Link to="/page3">Page 3</Link>

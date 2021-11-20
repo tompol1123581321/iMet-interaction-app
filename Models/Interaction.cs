@@ -1,5 +1,6 @@
 ﻿using Contracts.Interaction;
 using System;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -7,11 +8,15 @@ namespace Models
     public class Interaction
     {
         public long InteractionId { get; set; }
-        public int UserId { get; set; }
-        public int TargetId { get; set; }
+        public User User { get; set; }
+        public long UserId { get; set; }
+        public User Target { get; set; }
+        public long TargetId { get; set; }
         public InteractionType Type { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Deleted { get; set; }
+
+        public List<Reaction> Reactions { get; set; }
     }
 }
 
