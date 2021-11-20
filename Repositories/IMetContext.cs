@@ -24,6 +24,7 @@ namespace Repositories
 
             // Configure Primary Keys  
             modelBuilder.Entity<User>().HasKey(u => u.UserId).HasName("user_id");
+            modelBuilder.Entity<User>().Property(u => u.UserId).ValueGeneratedOnAdd();
             modelBuilder.Entity<Interaction>().HasKey(u => u.InteractionId).HasName("interaction_id");
 
             // Configure indexes  
@@ -31,10 +32,11 @@ namespace Repositories
             //modelBuilder.Entity<User>().HasIndex(u => u.LastName).HasDatabaseName("Idx_LastName");
 
             // Configure columns  
-            modelBuilder.Entity<User>().Property(u => u.UserId).HasColumnName("user_id").HasColumnType("int").UseMySqlIdentityColumn().IsRequired();
+            modelBuilder.Entity<User>().Property(u => u.UserId).HasColumnName("user_id").HasColumnType("bigint").UseMySqlIdentityColumn().IsRequired();
             modelBuilder.Entity<User>().Property(u => u.FirstName).HasColumnName("first_name").HasColumnType("varchar(64)").IsRequired();
             modelBuilder.Entity<User>().Property(u => u.LastName).HasColumnName("last_name").HasColumnType("varchar(64)").IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Email).HasColumnName("email").HasColumnType("varchar(64)").IsRequired();
+            modelBuilder.Entity<User>().Property(u => u.Password).HasColumnName("password").HasColumnType("nvarchar(128)").IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Created).HasColumnName("created").HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Deleted).HasColumnName("deleted").HasColumnType("datetime").IsRequired(false);
 

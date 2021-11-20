@@ -12,7 +12,7 @@ import { Interaction } from "../../../../../types/models";
 export const InteractionCard: React.FC<Interaction> = ({ ...props }) => {
     return (
         <>
-            <Card>
+            <Card style={{ marginTop: "1rem" }}>
                 <CardActionArea>
                     <CardContent>
                         <Typography
