@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace Models
 {
-    // 6jYhfGBF5Wjl1CwsPpfu
     public class Interaction
     {
         public long InteractionId { get; set; }
