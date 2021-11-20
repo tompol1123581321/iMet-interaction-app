@@ -30,6 +30,7 @@ namespace iMet.Controllers
                 .Include(i => i.User)
                 .Include(i => i.Target)
                 .ToList();
+
             var interactionsModel = interactions.Select(i => new InteractionModel
             {
                 Id = i.InteractionId,
