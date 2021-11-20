@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { DateTime } from "luxon";
+import axios from "axios";
 
 type Inputs = {
   target: string;
@@ -18,10 +19,12 @@ export const Form = () => {
     formState: { errors },
     watch,
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-  const currTime = new Date();
-  const dateTime = DateTime.now().toISO();
-  console.log(currTime, dateTime);
+  const onSubmit: SubmitHandler<Inputs> = (data) =>
+    axios.post("/newInteraction");
+  const currTime = DateTime.now()
+    .toISO()
+    .substring(0, DateTime.now().toISO().length - 10);
+  console.log(currTime);
 
   return (
     <Box
@@ -45,8 +48,7 @@ export const Form = () => {
 
           <FormLabel sx={{ marginTop: "1rem" }}>When?</FormLabel>
           <Input
-            defaultValue={dateTime ?? ""}
-            // 2021-11-20T20:33:53.186Z
+            defaultValue={currTime ?? ""}
             {...register("date", { required: true })}
             type="datetime-local"
           />

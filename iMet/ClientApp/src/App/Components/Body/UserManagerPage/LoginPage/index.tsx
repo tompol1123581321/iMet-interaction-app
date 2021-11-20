@@ -5,12 +5,12 @@ import { Container } from "../../MainPage/Container/Container";
 import { Form } from "./Form";
 
 export const LoginPage = () => {
-    return (
-        <Container>
-            <Typography variant="h4" className="m-auto">
-                Please login
-            </Typography>
-            <Form />
-        </Container>
-    );
+  return (
+    <Container>
+      <Typography variant="h4" className="m-auto">
+        Please login
+      </Typography>
+      {/* <Form /> */}
+    </Container>
+  );
 };
