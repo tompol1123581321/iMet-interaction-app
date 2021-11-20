@@ -6,6 +6,7 @@ namespace Models
     public class Reaction
     {
         public long ReactionId { get; set; }
+        public User User { get; set; }
         public long UserId { get; set; }
         public long InteractionId { get; set; }
         public ReactionType Type { get; set; }

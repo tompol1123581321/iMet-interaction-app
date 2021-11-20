@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Contracts.Feed;
+using Contracts.Interaction;
+using Contracts.User;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories;
 using System;
@@ -20,11 +24,34 @@ namespace iMet.Controllers
             this.context = context;
         }
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet("/interactions")]
+        public FeedModel Get()
         {
-            var users = context.Users.ToList();
-            return null;
+            var interactions = context.Interactions
+                .Include(i => i.User)
+                .Include(i => i.Target)
+                .ToList();
+            var interactionsModel = interactions.Select(i => new InteractionModel
+            {
+                Id = i.InteractionId,
+                Created = i.Created,
+                Type = i.Type,
+                User = new UserModel
+                {
+                    Id = i.User.UserId,
+                    DisplayName = $"{i.User.FirstName} {i.User.LastName}"
+                },
+                Target = new UserModel
+                {
+                    Id = i.Target.UserId,
+                    DisplayName = $"{i.Target.FirstName} {i.Target.LastName}"
+                }
+            }).ToList();
+
+            return new FeedModel
+            {
+                Interactions = interactionsModel
+            };
         }
     }
 }

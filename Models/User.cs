@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -11,6 +12,9 @@ namespace Models
         //public string Password { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Deleted { get; set; }
+
+        public List<Interaction> Interactions { get; set; }
+
     }
 }
 

@@ -1,11 +1,10 @@
 import React from "react";
+import { User } from "./user";
 
 export type Interaction = {
-  interactionId: number;
-  userId: number;
-  userName: string;
-  type: "online" | "offline";
-  date: any;
-  targetId: number;
-  targetName: string;
+    id: number;
+    type: number;
+    created: string;
+    user: User;
+    target: User;
 };

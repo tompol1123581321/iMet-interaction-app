@@ -56,7 +56,8 @@ namespace Repositories
             modelBuilder.Entity<Reaction>().Property(u => u.Deleted).HasColumnName("deleted").HasColumnType("datetime").IsRequired(false);
 
             // Configure relationships  
-            //modelBuilder.Entity<User>().HasOne<UserGroup>().WithMany().HasPrincipalKey(ug => ug.Id).HasForeignKey(u => u.UserGroupId).OnDelete(DeleteBehavior.NoAction).HasConstraintName("FK_Users_UserGroups");
+            modelBuilder.Entity<Interaction>().HasOne(i => i.User).WithMany(u => u.Interactions).HasForeignKey(u => u.UserId);
         }
+
     }
 }
