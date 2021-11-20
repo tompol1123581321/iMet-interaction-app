@@ -230,3 +230,7 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# app settings
+iMet/appsettings.Development.json
+iMet/appsettings.json
