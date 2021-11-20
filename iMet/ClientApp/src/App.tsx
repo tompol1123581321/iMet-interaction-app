@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Header, MainPage } from "./App/Components";
-import { SecondPage } from "./App/Components/Body/MainPage/SecondPage";
+import { AddInteractionPage } from "./App/Components/Body/MainPage/AddInteraction";
 import { ThirdPage } from "./App/Components/Body/MainPage/ThirdPage";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/page2" element={<SecondPage />} />
+          <Route path="/addInteraction" element={<AddInteractionPage />} />
           <Route path="/page3" element={<ThirdPage />} />
         </Routes>
       </BrowserRouter>

@@ -9,5 +9,8 @@ export const StyledBodyContainer = styled.div`
   margin: auto;
   margin-top: 10rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 `;

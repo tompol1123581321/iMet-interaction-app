@@ -4,6 +4,7 @@ import { InteractionCard } from "./Card/Card";
 import { Container } from "./Container/Container";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Box } from "@mui/system";
 
 export const MainPage = () => {
   const [loading, setLoading] = useState(true);
@@ -27,7 +28,7 @@ export const MainPage = () => {
 
   return (
     <Container>
-      <div style={{ position: "relative" }}>
+      <div>
         <Typography textAlign="center" mb="5rem" variant="h3">
           MainPage
         </Typography>
@@ -35,16 +36,17 @@ export const MainPage = () => {
         {!loading ? (
           interactions.map((i) => <InteractionCard key={`ic-` + i.id} {...i} />)
         ) : (
-          <CircularProgress
-            style={{
+          <Box
+            sx={{
+              display: "flex",
               position: "absolute",
-              top: "47%",
-              left: "43%",
+              top: "50%",
+              left: "50%",
               transform: "translate(-50%,-50%)",
-              width: "5rem",
             }}
-            color="secondary"
-          />
+          >
+            <CircularProgress size="4rem" disableShrink color="secondary" />
+          </Box>
         )}
       </div>
     </Container>
