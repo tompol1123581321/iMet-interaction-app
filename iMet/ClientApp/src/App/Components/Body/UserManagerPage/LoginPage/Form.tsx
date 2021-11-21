@@ -63,14 +63,14 @@ export const Form = () => {
         >
           <FormLabel>E-mail</FormLabel>
           <Input
-            defaultValue="lorem.ipsum@gmail.com"
+            defaultValue="martinpragprazak@gmail.com"
             {...register("email", { required: true })}
           />
           {errors.email?.type === "required" && "E-mail is required"}
 
           <FormLabel>Password</FormLabel>
           <Input
-            defaultValue="test123"
+            defaultValue="mamRadOry12"
             {...register("password", { required: true })}
             type="password"
           />
