@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{113DC766-F2D7-4E5E-BD05-98B3E6DF79DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{BA94C55C-E93F-49D8-AE35-DB023282E7C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{BA94C55C-E93F-49D8-AE35-DB023282E7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OryKratos", "OryKratos\OryKratos.csproj", "{E839FA6C-622B-4821-B3AA-0079B5FF6D17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BA94C55C-E93F-49D8-AE35-DB023282E7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA94C55C-E93F-49D8-AE35-DB023282E7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA94C55C-E93F-49D8-AE35-DB023282E7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E839FA6C-622B-4821-B3AA-0079B5FF6D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E839FA6C-622B-4821-B3AA-0079B5FF6D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E839FA6C-622B-4821-B3AA-0079B5FF6D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E839FA6C-622B-4821-B3AA-0079B5FF6D17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
