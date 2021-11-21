@@ -10,7 +10,7 @@ export const LoginPage = () => {
       <Typography variant="h4" className="m-auto">
         Please login
       </Typography>
-      {/* <Form /> */}
+      <Form />
     </Container>
   );
 };

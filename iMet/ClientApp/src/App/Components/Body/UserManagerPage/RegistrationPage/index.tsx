@@ -10,7 +10,7 @@ export const RegistrationPage = () => {
       <Typography variant="h4" className="m-auto">
         Hello! Please register. Everything is required.
       </Typography>
-      {/* <Form /> */}
+      <Form />
     </Container>
   );
 };
