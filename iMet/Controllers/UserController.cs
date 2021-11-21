@@ -32,9 +32,15 @@ namespace iMet.Controllers
         }
 
         [HttpPost("/register")]
-        public async Task Register(UserRegistrationModel model)
+        public async Task<bool> Register(UserRegistrationModel model)
         {
-            /*var existing = context.Users.SingleOrDefault(u => u.Email == model.Email);
+            var registred = await oryClient.RegisterUser(model.Email, model.Password);
+            if (!registred)
+            {
+                return false;
+            }
+
+            var existing = context.Users.SingleOrDefault(u => u.Email == model.Email);
             if (existing != null)
             {
                 throw new Exception("User already exists");
@@ -45,16 +51,16 @@ namespace iMet.Controllers
                 Created = DateTime.Now,
                 Email = model.Email,
                 FirstName = model.FirstName,
-                LastName = model.LastName,
-                Password = GetPasswordHash(model.Password)
+                LastName = model.LastName
             };
 
             await context.AddAsync(user);
-            await context.SaveChangesAsync();*/
+            await context.SaveChangesAsync();
+            return true;
         }
 
         [HttpPost("/login")]
-        public async Task<bool> Login(UserLoginModel model)
+        public async Task<string> Login(UserLoginModel model)
         {
             var existing = context.Users.SingleOrDefault(u => u.Email == model.Email);
             if (existing == null)
@@ -62,8 +68,8 @@ namespace iMet.Controllers
                 throw new Exception("User doesn't exist");
             }
 
-            var (token, isValid) = await oryClient.LoginUser(model.Email, model.Password);
-            return isValid;
+            var token = await oryClient.LoginUser(model.Email, model.Password);
+            return token;
         }
     }
 }

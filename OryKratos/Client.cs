@@ -8,30 +8,55 @@ namespace OryKratos
     public class Client
     {
         private readonly static string basePath = "https://pedantic-bohr-uex9c29o3l.projects.oryapis.com";
-        private readonly V0alpha2Api v0Alpha2Api;
+        private readonly V0alpha2Api alphaAPI;
 
         public Client()
         {
-            v0Alpha2Api = new V0alpha2Api(basePath);
+            alphaAPI = new V0alpha2Api(basePath);
         }
 
-        public async Task<(string, bool)> LoginUser(string email, string password)
+        public async Task<string> LoginUser(string email, string password)
         {
             try
             {
-                var flow = await v0Alpha2Api.InitializeSelfServiceLoginFlowWithoutBrowserAsync();
-                var login = await v0Alpha2Api.SubmitSelfServiceLoginFlowAsync(
+                var flow = await alphaAPI.InitializeSelfServiceLoginFlowWithoutBrowserAsync();
+                var login = await alphaAPI.SubmitSelfServiceLoginFlowAsync(
                     flow: flow.Id,
                     kratosSubmitSelfServiceLoginFlowBody: new KratosSubmitSelfServiceLoginFlowBody(
-                        new KratosSubmitSelfServiceLoginFlowWithPasswordMethodBody(csrfToken: "", method: "password", password: "das", passwordIdentifier: email)
+                        new KratosSubmitSelfServiceLoginFlowWithPasswordMethodBody(csrfToken: "", method: "password", password: password, passwordIdentifier: email)
                     )
                 );
 
-                return (login.SessionToken, true);
+                return login.SessionToken;
             }
             catch (Exception e)
             {
-                return (null, false);
+                return null;
+            }
+        }
+
+        public async Task<bool> RegisterUser(string email, string password)
+        {
+            try
+            {
+                var traits = new
+                {
+                    email = email
+                };
+
+                var flow = await alphaAPI.InitializeSelfServiceRegistrationFlowWithoutBrowserAsync();
+                var register = await alphaAPI.SubmitSelfServiceRegistrationFlowAsync(
+                    flow.Id,
+                    new KratosSubmitSelfServiceRegistrationFlowBody(
+                        new KratosSubmitSelfServiceRegistrationFlowWithPasswordMethodBody(csrfToken: "", method: "password", password: password, traits: traits)
+                    )
+                );
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
             }
         }
     }
