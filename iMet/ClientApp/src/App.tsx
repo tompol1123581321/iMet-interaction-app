@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { PrivateRoute } from "./App/auth/PrivateRoute";
 import { Header, MainPage } from "./App/Components";
 import { AddInteractionPage } from "./App/Components/Body/MainPage/AddInteraction";
 import { LoginPage } from "./App/Components/Body/UserManagerPage/LoginPage";
@@ -11,8 +12,22 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/addInteraction" element={<AddInteractionPage />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <MainPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/addInteraction"
+            element={
+              <PrivateRoute>
+                <AddInteractionPage />
+              </PrivateRoute>
+            }
+          />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
