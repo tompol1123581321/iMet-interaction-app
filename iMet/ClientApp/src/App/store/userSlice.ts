@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface UserState {
+export interface UserState {
   loggedIn: boolean;
   userName: string;
 }
@@ -23,4 +23,4 @@ const userSlice = createSlice({
 });
 
 export const { login, logout } = userSlice.actions;
-export default { userReducer: userSlice.reducer };
+export default userSlice.reducer;
