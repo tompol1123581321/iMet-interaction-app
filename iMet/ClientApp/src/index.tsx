@@ -5,12 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import LuxonUtils from "@date-io/luxon";
+import { Provider } from "react-redux";
+import { store } from "./App/store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MuiPickersUtilsProvider utils={LuxonUtils}>
+    <Provider store={store}>
       <App />
-    </MuiPickersUtilsProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -12,7 +12,6 @@ type Inputs = {
 };
 
 export const Form = () => {
-  const [selectedDate, handleDateChange] = React.useState(new Date());
   const {
     register,
     handleSubmit,
@@ -20,11 +19,10 @@ export const Form = () => {
     watch,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) =>
-    axios.post("/newInteraction");
+    axios.post("/newInteraction", data);
   const currTime = DateTime.now()
     .toISO()
     .substring(0, DateTime.now().toISO().length - 10);
-  console.log(currTime);
 
   return (
     <Box
