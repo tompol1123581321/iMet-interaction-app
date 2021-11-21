@@ -10,6 +10,7 @@ using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using OryKratos;
 
 namespace iMet.Controllers
 {
@@ -56,6 +57,8 @@ namespace iMet.Controllers
             {
                 throw new Exception("User doesn't exist");
             }
+
+            Client.Authenticate();
 
             return Task.FromResult(IsPasswordValid(existing.Password, model.Password));
         }
